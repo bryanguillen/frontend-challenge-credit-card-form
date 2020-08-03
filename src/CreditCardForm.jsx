@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 
 import './CreditCardForm.css';
 
 export default function CreditCardForm() {
+  const [creditCardNumber, setCreditCardNumber] = useState('');  
+  const [creditCardName, setCreditCardName] = useState('');  
+  const [creditCardExpirationMonth, setCreditCardExpirationMonth] = useState('Month');  
+  const [creditCardExpirationYear, setCreditCardExpirationYear] = useState('Year');  
+  const [creditCardCvv, setCreditCardCvv] = useState('');
+
+  function handleSubmit(event) {
+    // TODO: Implement
+  }
+
   return (
-    <Form className="credit-card-form">
+    <Form className="credit-card-form" onSubmit={handleSubmit}>
       <Form.Row>
         <Form.Group as={Col} controlId="formCcNumber">
           <Form.Label>Credit Card Number</Form.Label>
-          <Form.Control type="text" placeholder="1234 5678 1234 5678" />
+          <Form.Control type="text" placeholder="1234 5678 1234 5678" onChange={event => setCreditCardNumber(event.target.value)} />
         </Form.Group>
       </Form.Row>
       <Form.Row>
         <Form.Group as={Col} controlId="formCcName">
           <Form.Label>Credit Card Name</Form.Label>
-          <Form.Control type="text" placeholder="John Smith" />
+          <Form.Control type="text" placeholder="John Smith" onChange={event => setCreditCardName(event.target.value)} />
         </Form.Group>
       </Form.Row>
       <Form.Row>
@@ -23,8 +33,8 @@ export default function CreditCardForm() {
           <Form.Label>Expiration Date</Form.Label>
           <Row>
             <Col>
-              <Form.Control as="select" custom>
-                <option selected disabled>Month</option>
+              <Form.Control as="select" custom onChange={event => setCreditCardExpirationMonth(event.target.value)}>
+                <option defaultValue>Month</option>
                 <option>01</option>
                 <option>02</option>
                 <option>03</option>
@@ -40,8 +50,8 @@ export default function CreditCardForm() {
               </Form.Control>
             </Col>
             <Col>
-              <Form.Control as="select" custom>
-                <option selected disabled>Year</option>
+              <Form.Control as="select" custom onChange={event => setCreditCardExpirationYear(event.target.value)}>
+                <option defaultValue>Year</option>
                 <option>2021</option>
                 <option>2022</option>
                 <option>2023</option>
@@ -51,7 +61,7 @@ export default function CreditCardForm() {
         </Form.Group>
         <Form.Group as={Col} xs={4} controlId="formCcCvv">
           <Form.Label>CVV</Form.Label>
-          <Form.Control type="text" placeholder="123" />
+          <Form.Control type="text" placeholder="123" onChange={event => setCreditCardCvv(event.target.value)} />
           </Form.Group>
       </Form.Row>
       <Button variant="primary" type="submit" block>Submit</Button>
