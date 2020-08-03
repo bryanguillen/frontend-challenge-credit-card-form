@@ -24,6 +24,7 @@ export default function CreditCardForm() {
           <Row>
             <Col>
               <Form.Control as="select" custom>
+                <option selected disabled>Month</option>
                 <option>01</option>
                 <option>02</option>
                 <option>03</option>
@@ -40,6 +41,7 @@ export default function CreditCardForm() {
             </Col>
             <Col>
               <Form.Control as="select" custom>
+                <option selected disabled>Year</option>
                 <option>2021</option>
                 <option>2022</option>
                 <option>2023</option>
