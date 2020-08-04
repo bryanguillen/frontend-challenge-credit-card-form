@@ -1,4 +1,8 @@
 .credit-card {
+  background: url("https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/5.jpeg");
+  background-position: center center;
+  background-size: cover;
+  height: 270px;
   margin: 0 auto;
   max-width: 430px;
   position: relative; /* Used for positioning the content */
