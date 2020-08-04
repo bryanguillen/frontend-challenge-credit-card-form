@@ -15,16 +15,18 @@ export default function CreditCardForm() {
 
   return (
     <form className="credit-card-form" onSubmit={handleSubmit}>
-      <label for="creditCardNumber">Credit Card Number</label>
+      <label htmlFor="creditCardNumber" className="block-label">Credit Card Number</label>
       <input
+        className="credit-card-text-field"
         name="creditCardNumber"
         id="creditCardNumber"
         type="text"
         placeholder="1234 5678 1234 5678"
         onChange={event => setCreditCardNumber(event.target.value)}
       />
-      <label for="creditCardName">Credit Card Name</label>
+      <label htmlFor="creditCardName" className="block-label">Credit Card Name</label>
       <input
+        className="credit-card-text-field"
         name="creditCardName"
         id="creditCardName"
         type="text"
@@ -32,8 +34,8 @@ export default function CreditCardForm() {
         onChange={event => setCreditCardName(event.target.value)}
       />
       <fieldset>
-        <legend>Expiration Date</legend>
-        <label for="creditCardExpirationMonth" className="hidden-label">Month</label>
+        <legend className="block-label">Expiration Date</legend>
+        <label htmlFor="creditCardExpirationMonth" className="hidden-label">Month</label>
         <select
           name="creditExpirationMonth"
           id="creditExpirationMonth"        
@@ -53,7 +55,7 @@ export default function CreditCardForm() {
           <option>11</option>
           <option>12</option>
         </select>
-        <label for="creditCardExpirationYear" className="hidden-label">Year</label>
+        <label htmlFor="creditCardExpirationYear" className="hidden-label">Year</label>
         <select
           name="creditExpirationYear"
           id="creditExpirationYear"
@@ -65,9 +67,14 @@ export default function CreditCardForm() {
           <option>2023</option>
         </select>
       </fieldset>
-      <label for="creditCardCvv">CVV</label>
-      <input type="text" placeholder="123" onChange={event => setCreditCardCvv(event.target.value)} />
-      <button type="submit">Submit</button>
+      <label htmlFor="creditCardCvv" className="block-label">CVV</label>
+      <input
+        className="credit-card-text-field"
+        type="text"
+        placeholder="123"
+        onChange={event => setCreditCardCvv(event.target.value)}
+      />
+      <button type="submit" className="submit-credit-card-form-button">Submit</button>
     </form>
   );
 }
