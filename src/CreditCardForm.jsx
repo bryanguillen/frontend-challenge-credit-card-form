@@ -26,7 +26,7 @@ export default function CreditCardForm() {
           onChange={event => setCreditCardNumber(event.target.value)}
         />
       </div>
-      <div className="input-group input-group-flex">
+      <div className="input-group">
         <label htmlFor="creditCardName" className="block-label">Credit Card Name</label>
         <input
           className="credit-card-text-field"
@@ -37,7 +37,7 @@ export default function CreditCardForm() {
           onChange={event => setCreditCardName(event.target.value)}
         />
       </div>
-      <div className="input-group">
+      <div className="input-group input-group-flex">
         <fieldset className="credit-card-expiration-date-container">
           <legend className="block-label credit-card-expiration-legend">Expiration Date</legend>
           <div className="credit-card-expiration-selects-container">
