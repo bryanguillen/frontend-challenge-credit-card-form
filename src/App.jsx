@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <CreditCard/>
+      <CreditCard showFront={true} />
       <CreditCardForm/>
     </div>
   );
