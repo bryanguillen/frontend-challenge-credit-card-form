@@ -19,13 +19,13 @@ export default function CreditCardForm() {
       <Form.Row>
         <Form.Group as={Col} controlId="formCcNumber">
           <Form.Label>Credit Card Number</Form.Label>
-          <Form.Control type="text" placeholder="1234 5678 1234 5678" onChange={event => setCreditCardNumber(event.target.value)} />
+          <input type="text" placeholder="1234 5678 1234 5678" onChange={event => setCreditCardNumber(event.target.value)} />
         </Form.Group>
       </Form.Row>
       <Form.Row>
         <Form.Group as={Col} controlId="formCcName">
           <Form.Label>Credit Card Name</Form.Label>
-          <Form.Control type="text" placeholder="John Smith" onChange={event => setCreditCardName(event.target.value)} />
+          <input type="text" placeholder="John Smith" onChange={event => setCreditCardName(event.target.value)} />
         </Form.Group>
       </Form.Row>
       <Form.Row>
@@ -33,7 +33,7 @@ export default function CreditCardForm() {
           <Form.Label>Expiration Date</Form.Label>
           <Row>
             <Col>
-              <Form.Control as="select" custom onChange={event => setCreditCardExpirationMonth(event.target.value)}>
+              <select onChange={event => setCreditCardExpirationMonth(event.target.value)}>
                 <option defaultValue>Month</option>
                 <option>01</option>
                 <option>02</option>
@@ -47,24 +47,24 @@ export default function CreditCardForm() {
                 <option>10</option>
                 <option>11</option>
                 <option>12</option>
-              </Form.Control>
+              </select>
             </Col>
             <Col>
-              <Form.Control as="select" custom onChange={event => setCreditCardExpirationYear(event.target.value)}>
+              <select onChange={event => setCreditCardExpirationYear(event.target.value)}>
                 <option defaultValue>Year</option>
                 <option>2021</option>
                 <option>2022</option>
                 <option>2023</option>
-              </Form.Control>
+              </select>
             </Col>
           </Row>
         </Form.Group>
         <Form.Group as={Col} xs={4} controlId="formCcCvv">
           <Form.Label>CVV</Form.Label>
-          <Form.Control type="text" placeholder="123" onChange={event => setCreditCardCvv(event.target.value)} />
-          </Form.Group>
+          <input type="text" placeholder="123" onChange={event => setCreditCardCvv(event.target.value)} />
+        </Form.Group>
       </Form.Row>
-      <Button variant="primary" type="submit" block>Submit</Button>
+      <button type="submit">Submit</button>
     </Form>
   );
 }
