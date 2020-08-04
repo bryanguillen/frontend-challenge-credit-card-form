@@ -1,5 +1,58 @@
+.block-label {
+  display: block;
+  font-size: 14px;
+}
+
+.credit-card-cvv-container {
+  width: 40%;
+}
+
+.credit-card-expiration-date-container {
+  width: 60%;
+}
+
+.credit-card-expiration-legend {
+  width: 100%;
+}
+
+.credit-card-expiration-selects-container {
+  display: flex;
+}
+
 .credit-card-form {
   margin: 0 auto;
   max-width: 500px;
   padding: 20px;
+}
+
+.credit-card-select-field {
+  height: 50px;
+  margin-right: 10px;
+  width: 40%; /* Arbitrary width; it allows for margin between the two choices */
+}
+
+.credit-card-text-field {
+  height: 50px;
+  width: 100%;
+}
+
+.hidden-label {
+  display: none;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.input-group-flex {
+  display: flex;
+}
+
+.submit-credit-card-form-button {
+  background-color: blue;
+  border: 0;
+  color: white;
+  display: block;
+  height: 50px; /* Same as buttons */
+  width: 100%;
 }
