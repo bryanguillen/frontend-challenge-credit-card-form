@@ -33,6 +33,69 @@ Requirements
   - Default State of CC Number for CC
     - #
 
+---
+
 Next Steps:
 - Finish Assessment Before Moving Forward; start w/ the credit card image
 - Implement Technical Assessment
+
+---
+
+Credit Card Image
+
+Analysis - Problem
+I need to overlay a credit card over the actual form.  Note, that both the front
+and the back of the credit card need to be included in this.
+
+Requirements
+- Image(s) (Front and back)
+  - URL(s)
+  - Dimensions
+
+Technical Design
+- Image
+  - URL - Front
+    - https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/5.jpeg
+    - https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png
+    - https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png
+  - URL - Back
+    - https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png 
+  - URL Other Asset Like Elements
+    - Back
+      - Magnetic Stripe
+      - White Stripe (for CVV)
+- Markup
+  ```
+  <div class="credit-card">
+    <div class="credit-card-background-image-container"></div>
+    <div class="credit-card-chip-container"></div>
+    <div class="credit-card-logo-container"></div>
+    <div class="credit-card-number-container"></div>
+    <div class="credit-card-name-container"></div>
+    <div class="credit-card-expiration-container"></div>
+  </div>
+  ```
+  - Notes
+    - The credit-card-content-container could the be "overlayed"
+      the actual background 
+      
+---
+
+Next Steps
+- Assess and implement the back of the card
+- Assess and implement the overlaying of card on form
+- Assess and implement functionalities
+  - Tackle Functionalities in Small Batches
+  - Functionalities
+    - Flipping Behavior (when focused on CVV)
+    - Mirroring Behavior
+    - Clicking on CC Behavior
+- Clean up UI
+- Refactor Code
+
+---
+
+Additional Notes:
+- Assess how to salvage projects to demonstrate learnings
+  on Redux
+- Assess and implement Formik alternative (?)
