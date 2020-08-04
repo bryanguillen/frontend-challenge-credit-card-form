@@ -10,14 +10,14 @@ export default function CreditCardFront() {
           <img
             className="credit-card-chip"
             src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
-            alt="credit card background"
+            alt="credit card chip"
           />
         </div>
         <div className="credit-card-logo-container">
           <img
             className="credit-card-logo"
             src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png"
-            alt="credit card background"
+            alt="credit card logo"
           />
         </div>
       </div>
