@@ -2,6 +2,7 @@
   margin: 0 auto;
   max-width: 430px;
   position: relative; /* Used for positioning the content */
+  top: 50px;
 }
 
 .credit-card * {
