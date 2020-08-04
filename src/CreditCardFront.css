@@ -1,43 +1,44 @@
-.credit-card-background-image-container {
+.credit-card-front {
+  display: flex;
+  flex-direction: column;
   height: 270px;
 }
 
-.credit-card-chip-container {
-  left: 0;
-  top: 0;
+.credit-card-chip-brand-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.credit-card-content-container {
-  height: 270px; /* Same as bg img container above */
-  max-width: 430px; /* Same as credit card above */
-  top: 0;
+.credit-card-name-and-expiration-container {
+  align-items: center;
+  display: flex;
 }
 
-.credit-card-logo-container {
-  right: 0;
-  top: 0;
+.credit-card-name-container,
+.credit-card-expiration-container {
+  width: 50%;
 }
 
 .credit-card-number-container {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }
 
-.credit-card-name-container {
-  bottom: 0;
-  left: 0;
-}
 
-.credit-card-expiration-container {
-  bottom: 0;
-  right: 0;
+.credit-card-chip-brand-container,
+.credit-card-name-and-expiration-container {
+  height: 100px;
 }
 
 .credit-card-chip-container,
-.credit-card-logo-container,
-.credit-card-number-container,
-.credit-card-name-container,
-.credit-card-expiration-container {
-  position: absolute;
+.credit-card-logo-container {
+  width: 50%;
+}
+
+.credit-card-chip,
+.credit-card-logo {
+  max-height: 100%;
+  max-width: 100%;
 }
