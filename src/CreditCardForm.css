@@ -28,6 +28,10 @@
   width: 100%;
 }
 
+.credit-card-form * {
+  box-sizing: border-box;
+}
+
 .credit-card-select-field {
   height: 50px;
   margin-right: 10px;
