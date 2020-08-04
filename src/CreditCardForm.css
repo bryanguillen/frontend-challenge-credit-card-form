@@ -56,6 +56,7 @@
   border: 0;
   color: white;
   display: block;
+  font-size: 14px;
   height: 50px; /* Same as buttons */
   width: 100%;
 }
