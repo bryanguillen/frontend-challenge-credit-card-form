@@ -1,0 +1,38 @@
+Credit Card Form
+
+Analysis - Problem
+We need an interactive credit card form, where there is a credit card
+that reflects the value of the form in real time.
+
+Analysis - Use Cases
+- User submits all correct data
+- User submits form partially correct (i.e. some field(s) are missing correct values)
+- User submits form totally incorrect (i.e. all fields are incorrect)
+
+Requirements
+- UI
+  - Components
+    - Form
+      - Card Number Text Field
+        - This needs to be spaced accordingly, where every four digits, a space is
+          added b/w the current group and the next
+      - Card Name Text Field (i.e. cc company)
+      - Expiration Date Dropdowns
+        - Month (2 digit format)
+        - Year (4 digit format)
+      - CVV Text Field
+      - Submit Button
+    - Credit Card
+      - It will contain data/values from all of the fields mentioned above
+  - Positioning of Components
+    - CC overlaps form w/ a box shadow underneath the card
+- UX
+  - Validation
+  - Interactive Card
+    - Fields in card update as user fills out form (e.g. if user adds 1 for cc number, 1 gets added to cc)
+  - Default State of CC Number for CC
+    - #
+
+Next Steps:
+- Finish Assessment Before Moving Forward; start w/ the credit card image
+- Implement Technical Assessment
