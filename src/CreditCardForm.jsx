@@ -89,7 +89,7 @@ export default function CreditCardForm() {
     <form className="credit-card-form" onSubmit={handleSubmit}>
       <div className="input-group">
         <label htmlFor="creditCardNumber" className="block-label">Credit Card Number</label>
-        {creditCardNumberError ? <div class="credit-card-form-error">Please ensure you include a 16 digit number for this field.</div> : null}
+        {creditCardNumberError ? <div className="credit-card-form-error">Please ensure you include a 16 digit number for this field.</div> : null}
         <input
           className="credit-card-text-field"
           name="creditCardNumber"
@@ -103,7 +103,7 @@ export default function CreditCardForm() {
       </div>
       <div className="input-group">
         <label htmlFor="creditCardName" className="block-label">Credit Card Name</label>
-        {creditCardNameError ? <div class="credit-card-form-error">Please include a name for this field</div> : null}
+        {creditCardNameError ? <div className="credit-card-form-error">Please include a name for this field</div> : null}
         <input
           className="credit-card-text-field"
           name="creditCardName"
@@ -117,7 +117,7 @@ export default function CreditCardForm() {
       <div className="input-group input-group-flex">
         <fieldset className="credit-card-expiration-date-container">
           <legend className="block-label credit-card-expiration-legend">Expiration Date</legend>
-          {creditCardExpirationFieldError ? <div class="credit-card-form-error">Please select both a month and year.</div> : null}
+          {creditCardExpirationFieldError ? <div className="credit-card-form-error">Please select both a month and year.</div> : null}
           <div className="credit-card-expiration-selects-container">
             <label htmlFor="creditCardExpirationMonth" className="hidden-label">Month</label>
             <select
@@ -158,7 +158,7 @@ export default function CreditCardForm() {
         </fieldset>
         <div className="credit-card-cvv-container">
           <label htmlFor="creditCardCvv" className="block-label">CVV</label>
-          {creditCardCvvError ? <div class="credit-card-form-error">Please enter a valid 3 digit number.</div> : null}
+          {creditCardCvvError ? <div className="credit-card-form-error">Please enter a valid 3 digit number.</div> : null}
           <input
             className="credit-card-text-field"
             type="text"

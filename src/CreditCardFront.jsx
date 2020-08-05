@@ -22,7 +22,7 @@ export default function CreditCardFront() {
         </div>
       </div>
       <div className="credit-card-number-container">
-        <div class="credit-card-number">#### #### #### ####</div>
+        <div className="credit-card-number">#### #### #### ####</div>
       </div>
       <div className="credit-card-name-and-expiration-container">
         <div className="credit-card-name-container">
