@@ -9,6 +9,11 @@ export default function CreditCardForm() {
   const [creditCardExpirationYear, setCreditCardExpirationYear] = useState('');  
   const [creditCardCvv, setCreditCardCvv] = useState('');
 
+  const [creditCardNumberError, setCreditCardNumberError] = useState(false);
+  const [creditCardNameError, setCreditCardNameError] = useState(false);
+  const [creditCardExpirationFieldError, setCreditCardExpirationFieldError] = useState(false);
+  const [creditCardCvvError, setCreditCardCvvError] = useState(false);
+
   /**
    * @description Function used to add a space every four characters, given a string
    * @param {String} value
@@ -49,14 +54,42 @@ export default function CreditCardForm() {
     }
   }
 
+  /**
+   * @description Handler for submit; it simply validates the fields
+   */
   function handleSubmit(event) {
-    // TODO: Implement
+    event.preventDefault();
+
+    if (creditCardNumber === '' || creditCardNumber.length !== 19) {
+      setCreditCardNumberError(true);
+    } else {
+      setCreditCardNumberError(false);
+    }
+
+    if (creditCardName.trim() === '') {
+      setCreditCardNameError(true);
+    } else {
+      setCreditCardNameError(false);
+    }
+
+    if (creditCardExpirationMonth === '' || creditCardExpirationYear === '') {
+      setCreditCardExpirationFieldError(true);
+    } else {
+      setCreditCardExpirationFieldError(false);
+    }
+
+    if (creditCardCvv.trim() === '' || creditCardCvv.length !== 3) {
+      setCreditCardCvvError(true);
+    } else {
+      setCreditCardCvvError(false);
+    }
   }
 
   return (
     <form className="credit-card-form" onSubmit={handleSubmit}>
       <div className="input-group">
         <label htmlFor="creditCardNumber" className="block-label">Credit Card Number</label>
+        {creditCardNumberError ? <div class="credit-card-form-error">Please ensure you include a 16 digit number for this field.</div> : null}
         <input
           className="credit-card-text-field"
           name="creditCardNumber"
@@ -70,6 +103,7 @@ export default function CreditCardForm() {
       </div>
       <div className="input-group">
         <label htmlFor="creditCardName" className="block-label">Credit Card Name</label>
+        {creditCardNameError ? <div class="credit-card-form-error">Please include a name for this field</div> : null}
         <input
           className="credit-card-text-field"
           name="creditCardName"
@@ -83,6 +117,7 @@ export default function CreditCardForm() {
       <div className="input-group input-group-flex">
         <fieldset className="credit-card-expiration-date-container">
           <legend className="block-label credit-card-expiration-legend">Expiration Date</legend>
+          {creditCardExpirationFieldError ? <div class="credit-card-form-error">Please select both a month and year.</div> : null}
           <div className="credit-card-expiration-selects-container">
             <label htmlFor="creditCardExpirationMonth" className="hidden-label">Month</label>
             <select
@@ -123,6 +158,7 @@ export default function CreditCardForm() {
         </fieldset>
         <div className="credit-card-cvv-container">
           <label htmlFor="creditCardCvv" className="block-label">CVV</label>
+          {creditCardCvvError ? <div class="credit-card-form-error">Please enter a valid 3 digit number.</div> : null}
           <input
             className="credit-card-text-field"
             type="text"
