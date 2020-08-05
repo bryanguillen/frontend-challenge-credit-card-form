@@ -12,7 +12,7 @@
 }
 
 /* Flip */
-.credit-card:hover .flipper {
+.credit-card .flipper.show-back {
   transform: rotateY(180deg);
 }
 
