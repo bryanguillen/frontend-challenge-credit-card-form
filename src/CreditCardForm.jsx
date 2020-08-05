@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 
 import './CreditCardForm.css';
 
-export default function CreditCardForm({ cvvOnBlur, cvvOnFocus }) {
-  const [creditCardNumber, setCreditCardNumber] = useState('');  
-  const [creditCardName, setCreditCardName] = useState('');  
-  const [creditCardExpirationMonth, setCreditCardExpirationMonth] = useState('');  
-  const [creditCardExpirationYear, setCreditCardExpirationYear] = useState('');  
-  const [creditCardCvv, setCreditCardCvv] = useState('');
-
-  const [creditCardNumberError, setCreditCardNumberError] = useState(false);
-  const [creditCardNameError, setCreditCardNameError] = useState(false);
-  const [creditCardExpirationFieldError, setCreditCardExpirationFieldError] = useState(false);
-  const [creditCardCvvError, setCreditCardCvvError] = useState(false);
+export default function CreditCardForm({
+  creditCardNumber,
+  creditCardName,
+  creditCardExpirationMonth,
+  creditCardExpirationYear,
+  creditCardCvv,
+  creditCardNumberError,
+  creditCardNameError,
+  creditCardExpirationFieldError,
+  creditCardCvvError,
+  cvvOnBlur,
+  cvvOnFocus,
+  handleSubmit,
+  setCreditCardNumber,
+  setCreditCardName,
+  setCreditCardExpirationMonth,
+  setCreditCardExpirationYear,
+  setCreditCardCvv
+}) {
 
   /**
    * @description Function used to add a space every four characters, given a string
@@ -51,37 +59,6 @@ export default function CreditCardForm({ cvvOnBlur, cvvOnFocus }) {
       setCreditCardNumber(addSpaceEveryFourChars(value));
     } else {
       setCreditCardNumber(event.target.value);
-    }
-  }
-
-  /**
-   * @description Handler for submit; it simply validates the fields
-   */
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    if (creditCardNumber === '' || creditCardNumber.length !== 19) {
-      setCreditCardNumberError(true);
-    } else {
-      setCreditCardNumberError(false);
-    }
-
-    if (creditCardName.trim() === '') {
-      setCreditCardNameError(true);
-    } else {
-      setCreditCardNameError(false);
-    }
-
-    if (creditCardExpirationMonth === '' || creditCardExpirationYear === '') {
-      setCreditCardExpirationFieldError(true);
-    } else {
-      setCreditCardExpirationFieldError(false);
-    }
-
-    if (creditCardCvv.trim() === '' || creditCardCvv.length !== 3) {
-      setCreditCardCvvError(true);
-    } else {
-      setCreditCardCvvError(false);
     }
   }
 
