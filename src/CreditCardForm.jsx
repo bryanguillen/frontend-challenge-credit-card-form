@@ -5,8 +5,8 @@ import './CreditCardForm.css';
 export default function CreditCardForm() {
   const [creditCardNumber, setCreditCardNumber] = useState('');  
   const [creditCardName, setCreditCardName] = useState('');  
-  const [creditCardExpirationMonth, setCreditCardExpirationMonth] = useState('Month');  
-  const [creditCardExpirationYear, setCreditCardExpirationYear] = useState('Year');  
+  const [creditCardExpirationMonth, setCreditCardExpirationMonth] = useState('');  
+  const [creditCardExpirationYear, setCreditCardExpirationYear] = useState('');  
   const [creditCardCvv, setCreditCardCvv] = useState('');
 
   /**
