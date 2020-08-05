@@ -5,10 +5,13 @@ import CreditCardFront from './CreditCardFront';
 
 import './CreditCard.css';
 
-export default function CreditCard({ showFront }) {
+export default function CreditCard() {
   return (
     <div className="credit-card">
-      {showFront ? <CreditCardFront/> : <CreditCardBack/>}
+      <div className="flipper">
+        <CreditCardFront/>
+        <CreditCardBack/>
+      </div>
     </div>
   );
 }
