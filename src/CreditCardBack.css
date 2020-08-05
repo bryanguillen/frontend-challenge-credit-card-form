@@ -23,6 +23,7 @@
 .cvv-stripe {
   background-color: white;
   height: 50px;
+  text-align: right;
   width: 95%;
 }
 

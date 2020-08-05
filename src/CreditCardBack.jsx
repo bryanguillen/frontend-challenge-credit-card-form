@@ -2,13 +2,13 @@ import React from 'react';
 
 import './CreditCardBack.css';
 
-export default function CreditCardBack() {
+export default function CreditCardBack({ creditCardCvvFromInput }) {
   return (
     <div className="credit-card-back">
       <div className="magnetic-stripe"></div>
       <div className="cvv-stripe-container">
         <div className="cvv-stripe-label">CVV</div>
-        <div className="cvv-stripe"></div>
+        <div className="cvv-stripe">{creditCardCvvFromInput}</div>
       </div>
       <div className="credit-card-back-logo-container">
         <img

@@ -6,6 +6,7 @@ import CreditCardFront from './CreditCardFront';
 import './CreditCard.css';
 
 export default function CreditCard({
+  creditCardCvvFromInput,
   creditCardExpirationMonthFromInput,
   creditCardExpirationYearFromInput,
   creditCardNumberFromInput,
@@ -23,7 +24,9 @@ export default function CreditCard({
           creditCardNumberFromInput={creditCardNumberFromInput}
           creditCardNameFromInput={creditCardNameFromInput}
         />
-        <CreditCardBack/>
+        <CreditCardBack
+          creditCardCvvFromInput={creditCardCvvFromInput}
+        />
       </div>
     </div>
   );
