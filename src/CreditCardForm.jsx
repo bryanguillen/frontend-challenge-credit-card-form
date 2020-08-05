@@ -9,6 +9,46 @@ export default function CreditCardForm() {
   const [creditCardExpirationYear, setCreditCardExpirationYear] = useState('Year');  
   const [creditCardCvv, setCreditCardCvv] = useState('');
 
+  /**
+   * @description Function used to add a space every four characters, given a string
+   * @param {String} value
+   * @returns {String}
+   */
+  function addSpaceEveryFourChars(value, maxNumberOfSpaces = 3) {
+    const normalizedValue = value.replace(/\D/g, '');
+    let formattedValue = '';
+    let spacesAdded = 0;
+
+    for (let i = 0; i < normalizedValue.length; i++) {
+      formattedValue += normalizedValue[i];
+      if ((i + 1) % 4 === 0 && spacesAdded < maxNumberOfSpaces) {
+        formattedValue += ' ';
+        spacesAdded += 1;
+      }
+    }
+
+    return formattedValue;
+  }
+
+  /**
+   * @description Function used to handle the change for cc number
+   * field; it's used to encapsulate the logic for this field, since
+   * it is a bit more involved.  It's more involved b/c it has
+   * to format (i.e. add a space every 4 digits) and it can only accept
+   * digits.
+   * @param {Object} event
+   */
+  function handleChangeForCreditCardNumber(event) {
+    const { value } = event.target;
+    const userDidNotDeleteCharacter = creditCardNumber.length < value.length;
+
+    if (userDidNotDeleteCharacter) {
+      setCreditCardNumber(addSpaceEveryFourChars(value));
+    } else {
+      setCreditCardNumber(event.target.value);
+    }
+  }
+
   function handleSubmit(event) {
     // TODO: Implement
   }
@@ -23,8 +63,9 @@ export default function CreditCardForm() {
           id="creditCardNumber"
           type="text"
           placeholder="1234 5678 1234 5678"
-          onChange={event => setCreditCardNumber(event.target.value)}
+          onChange={handleChangeForCreditCardNumber}
           value={creditCardNumber}
+          maxLength={19}
         />
       </div>
       <div className="input-group">
