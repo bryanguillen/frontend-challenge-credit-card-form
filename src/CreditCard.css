@@ -1,14 +1,43 @@
 .credit-card {
-  background: url("https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/5.jpeg");
-  background-position: center center;
-  background-size: cover;
   height: 270px;
   margin: 0 auto;
   max-width: 430px;
+  perspective: 1000px;
   position: relative; /* Used for positioning the content */
   top: 50px;
 }
 
 .credit-card * {
   box-sizing: border-box;
+}
+
+/* Flip */
+.credit-card:hover .flipper {
+  transform: rotateY(180deg);
+}
+
+/* Flip Speed */
+.flipper {
+	position: relative;
+  transition: 0.6s;
+	transform-style: preserve-3d;
+}
+
+/* Hide Back Pane while Flip */
+.credit-card-front, .credit-card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Front above Back */
+.credit-card-front {
+  z-index: 2;
+  transform: rotateY(0deg); /* for firefox 31 */
+}
+
+/* Initially Hide Back Pain */
+.credit-card-back {
+  transform: rotateY(180deg);
 }
