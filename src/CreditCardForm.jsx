@@ -24,6 +24,7 @@ export default function CreditCardForm() {
           type="text"
           placeholder="1234 5678 1234 5678"
           onChange={event => setCreditCardNumber(event.target.value)}
+          value={creditCardNumber}
         />
       </div>
       <div className="input-group">
@@ -35,6 +36,7 @@ export default function CreditCardForm() {
           type="text"
           placeholder="John Smith"
           onChange={event => setCreditCardName(event.target.value)}
+          value={creditCardName}
         />
       </div>
       <div className="input-group input-group-flex">
@@ -47,6 +49,7 @@ export default function CreditCardForm() {
               name="creditExpirationMonth"
               id="creditExpirationMonth"        
               onChange={event => setCreditCardExpirationMonth(event.target.value)}
+              value={creditCardExpirationMonth}
             >
               <option defaultValue>Month</option>
               <option>01</option>
@@ -68,6 +71,7 @@ export default function CreditCardForm() {
               name="creditExpirationYear"
               id="creditExpirationYear"
               onChange={event => setCreditCardExpirationYear(event.target.value)}
+              value={creditCardExpirationYear}
             >
               <option defaultValue>Year</option>
               <option>2021</option>
