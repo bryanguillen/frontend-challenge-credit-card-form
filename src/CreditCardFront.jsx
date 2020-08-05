@@ -2,7 +2,27 @@ import React from 'react';
 
 import './CreditCardFront.css';
 
-export default function CreditCardFront() {
+export default function CreditCardFront({ creditCardNumberFromInput }) {
+  /**
+   * @description Helper function used to wrap the logic required
+   * for properly replacing the hash tags in the credit card number 
+   * field
+   * @returns {String}
+   */
+  function getCreditCardNumber() {
+    const creditCardNumberMaxLength = 19;
+    const hashedCreditCardNumber = '#### #### #### ####';
+    const creditCardNumberLength = creditCardNumberFromInput.length;
+
+    if (creditCardNumberLength === creditCardNumberMaxLength) {
+      return creditCardNumberFromInput;
+    } else if (creditCardNumberLength < creditCardNumberMaxLength && creditCardNumberLength > 0) {
+      return creditCardNumberFromInput.substring(0, creditCardNumberLength) + hashedCreditCardNumber.substring(creditCardNumberLength)
+    } else {
+      return hashedCreditCardNumber;
+    }
+  }
+  
   return (
     <div className="credit-card-front">
       <div className="credit-card-chip-brand-container">  
@@ -22,7 +42,7 @@ export default function CreditCardFront() {
         </div>
       </div>
       <div className="credit-card-number-container">
-        <div className="credit-card-number">#### #### #### ####</div>
+        <div className="credit-card-number">{getCreditCardNumber()}</div>
       </div>
       <div className="credit-card-name-and-expiration-container">
         <div className="credit-card-name-container">

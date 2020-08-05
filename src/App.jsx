@@ -53,7 +53,10 @@ function App() {
 
   return (
     <div className="app">
-      <CreditCard showFront={showFront} />
+      <CreditCard
+        creditCardNumberFromInput={creditCardNumber}
+        showFront={showFront}
+      />
       <CreditCardForm
         creditCardNumber={creditCardNumber}
         creditCardName={creditCardName}
