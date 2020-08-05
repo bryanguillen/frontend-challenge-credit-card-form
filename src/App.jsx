@@ -54,6 +54,8 @@ function App() {
   return (
     <div className="app">
       <CreditCard
+        creditCardExpirationMonthFromInput={creditCardExpirationMonth}
+        creditCardExpirationYearFromInput={creditCardExpirationYear}   
         creditCardNumberFromInput={creditCardNumber}
         creditCardNameFromInput={creditCardName}
         showFront={showFront}

@@ -3,6 +3,8 @@ import React from 'react';
 import './CreditCardFront.css';
 
 export default function CreditCardFront({
+  creditCardExpirationMonthFromInput,
+  creditCardExpirationYearFromInput,
   creditCardNumberFromInput,
   creditCardNameFromInput
 }) {
@@ -24,6 +26,19 @@ export default function CreditCardFront({
     } else {
       return hashedCreditCardNumber;
     }
+  }
+
+  /**
+   * @description Helper function used for the same purpose as the one above -- to help
+   * wrap the logic of getting the actual month and year, which will replace the defaults
+   * once the value is chosen for each field
+   * @returns {String}
+   */
+  function getExpirationDate() {
+    const expirationMonth = creditCardExpirationMonthFromInput === '' ? 'MM' : creditCardExpirationMonthFromInput;
+    const expirationYear = creditCardExpirationYearFromInput === '' ? 'YYYY' : creditCardExpirationYearFromInput;
+
+    return expirationMonth + '/' + expirationYear;
   }
   
   return (
@@ -54,7 +69,7 @@ export default function CreditCardFront({
         </div>
         <div className="credit-card-expiration-container">
           <div className="credit-card-expiration-label">Expires</div>
-          <div className="credit-card-expiration-month">MM/YY</div>
+          <div className="credit-card-expiration-month">{getExpirationDate()}</div>
         </div>
       </div>
     </div>
