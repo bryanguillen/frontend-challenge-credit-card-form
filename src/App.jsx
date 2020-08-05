@@ -55,6 +55,7 @@ function App() {
     <div className="app">
       <CreditCard
         creditCardNumberFromInput={creditCardNumber}
+        creditCardNameFromInput={creditCardName}
         showFront={showFront}
       />
       <CreditCardForm

@@ -2,7 +2,10 @@ import React from 'react';
 
 import './CreditCardFront.css';
 
-export default function CreditCardFront({ creditCardNumberFromInput }) {
+export default function CreditCardFront({
+  creditCardNumberFromInput,
+  creditCardNameFromInput
+}) {
   /**
    * @description Helper function used to wrap the logic required
    * for properly replacing the hash tags in the credit card number 
@@ -47,7 +50,7 @@ export default function CreditCardFront({ creditCardNumberFromInput }) {
       <div className="credit-card-name-and-expiration-container">
         <div className="credit-card-name-container">
           <div className="credit-card-holder-label">Card Holder</div>
-          <div className="credit-card-holder-name">Bryan</div>
+          <div className="credit-card-holder-name">{creditCardNameFromInput}</div>
         </div>
         <div className="credit-card-expiration-container">
           <div className="credit-card-expiration-label">Expires</div>
