@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './CreditCardForm.css';
 
-export default function CreditCardForm() {
+export default function CreditCardForm({ cvvOnBlur, cvvOnFocus }) {
   const [creditCardNumber, setCreditCardNumber] = useState('');  
   const [creditCardName, setCreditCardName] = useState('');  
   const [creditCardExpirationMonth, setCreditCardExpirationMonth] = useState('');  
@@ -166,6 +166,8 @@ export default function CreditCardForm() {
             onChange={event => setCreditCardCvv(event.target.value.replace(/\D/g, ''))}
             maxLength={3}
             value={creditCardCvv}
+            onBlur={cvvOnBlur}
+            onFocus={cvvOnFocus}
           />
         </div>
       </div>
