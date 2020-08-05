@@ -82,7 +82,9 @@ export default function CreditCardForm() {
             className="credit-card-text-field"
             type="text"
             placeholder="123"
-            onChange={event => setCreditCardCvv(event.target.value)}
+            onChange={event => setCreditCardCvv(event.target.value.replace(/\D/g, ''))}
+            maxLength={3}
+            value={creditCardCvv}
           />
         </div>
       </div>
