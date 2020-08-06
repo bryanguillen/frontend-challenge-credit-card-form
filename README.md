@@ -20,7 +20,10 @@ Some of the cool features include:
 * Card Event Listeners
   * If user clicks on the _Card Holder_ container, in credit card, that focuses the related
     input, which in this example would be the _Card Holder Name_ field
-      * The same goes for all other containers
+      * The same goes for all other containers, except for CVV field, as I do not think
+        that field needs that feature
+  * Additionally, whenever the expiration container is clicked it focuses on the month field
+    not the year
 * Basic Form Authorization
   * Error messages are displayed when appropriate
 
