@@ -7,7 +7,8 @@ export default function CreditCardFront({
   creditCardExpirationYearFromInput,
   creditCardNumberFromInput,
   creditCardNameFromInput,
-  setFocusOnCreditCardNumber
+  setFocusOnCreditCardNumber,
+  setFocusOnCreditCardName
 }) {
   /**
    * @description Helper function used to wrap the logic required
@@ -64,7 +65,7 @@ export default function CreditCardFront({
         <div className="credit-card-number" onClick={() => setFocusOnCreditCardNumber(true)}>{getCreditCardNumber()}</div>
       </div>
       <div className="credit-card-name-and-expiration-container">
-        <div className="credit-card-name-container">
+        <div className="credit-card-name-container" onClick={() => setFocusOnCreditCardName(true)}>
           <div className="credit-card-holder-label">Card Holder</div>
           <div className="credit-card-holder-name">{creditCardNameFromInput}</div>
         </div>

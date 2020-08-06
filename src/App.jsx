@@ -18,6 +18,7 @@ function App() {
   const [creditCardCvvError, setCreditCardCvvError] = useState(false);
 
   const [focusOnCreditCardNumber, setFocusOnCreditCardNumber] = useState(false);
+  const [focusOnCreditCardName, setFocusOnCreditCardName] = useState(false);
 
   const [showFront, setShowFront] = useState(true);
 
@@ -63,6 +64,7 @@ function App() {
         creditCardNameFromInput={creditCardName}
         showFront={showFront}
         setFocusOnCreditCardNumber={setFocusOnCreditCardNumber}
+        setFocusOnCreditCardName={setFocusOnCreditCardName}
       />
       <CreditCardForm
         creditCardNumber={creditCardNumber}
@@ -84,6 +86,8 @@ function App() {
         cvvOnBlur={() =>  setShowFront(true)}
         focusOnCreditCardNumber={focusOnCreditCardNumber}
         onBlurForCreditCardNumberInput={() => setFocusOnCreditCardNumber(false)}
+        focusOnCreditCardName={focusOnCreditCardName}
+        onBlurForCreditCardNameInput={() => setFocusOnCreditCardName(false)}
       />
     </div>
   );

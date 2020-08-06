@@ -12,7 +12,8 @@ export default function CreditCard({
   creditCardNumberFromInput,
   creditCardNameFromInput,
   showFront,
-  setFocusOnCreditCardNumber
+  setFocusOnCreditCardNumber,
+  setFocusOnCreditCardName
 }) {
   const flipperClasses = showFront ? 'flipper' : 'flipper show-back';
 
@@ -25,6 +26,7 @@ export default function CreditCard({
           creditCardNumberFromInput={creditCardNumberFromInput}
           creditCardNameFromInput={creditCardNameFromInput}
           setFocusOnCreditCardNumber={setFocusOnCreditCardNumber}
+          setFocusOnCreditCardName={setFocusOnCreditCardName}
         />
         <CreditCardBack
           creditCardCvvFromInput={creditCardCvvFromInput}

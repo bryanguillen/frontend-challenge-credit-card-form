@@ -21,12 +21,19 @@ export default function CreditCardForm({
   setCreditCardExpirationYear,
   setCreditCardCvv,
   focusOnCreditCardNumber,
-  onBlurForCreditCardNumberInput
+  onBlurForCreditCardNumberInput,
+  focusOnCreditCardName,
+  onBlurForCreditCardNameInput
 }) {
+  const creditCardNumberInputElement = useRef(null);
   const creditCardNameInputElement = useRef(null);
   
   useEffect(() => {
     if (focusOnCreditCardNumber) {
+      creditCardNumberInputElement.current.focus();
+    }
+
+    if (focusOnCreditCardName) {
       creditCardNameInputElement.current.focus();
     }
   });
@@ -86,7 +93,7 @@ export default function CreditCardForm({
           value={creditCardNumber}
           maxLength={19}
           onBlur={onBlurForCreditCardNumberInput}
-          ref={creditCardNameInputElement}
+          ref={creditCardNumberInputElement}
         />
       </div>
       <div className="input-group">
@@ -100,6 +107,8 @@ export default function CreditCardForm({
           placeholder="John Smith"
           onChange={event => setCreditCardName(event.target.value)}
           value={creditCardName}
+          onBlur={onBlurForCreditCardNameInput}
+          ref={creditCardNameInputElement}
         />
       </div>
       <div className="input-group input-group-flex">
