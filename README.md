@@ -44,6 +44,8 @@ It's purpose is to help sharpen my skills in the following areas:
 
 ## Technical Overview
 
+### Source
+
 Given that this project was implemented in React, a component based approach was taken.  There are
 three main components:
 
@@ -51,7 +53,7 @@ three main components:
 * `CreditCard`
 * `CreditCardForm`
 
-### App
+#### App
 
 This is the main component and it contains the "lifted" state for the "app".  Essentially, it contains
 the state of the form and the state of the credit card.  Through this architecture, data flows easily
@@ -60,12 +62,21 @@ from component to component, via React props.
 Note: Ideally, I like to `App` clean, where I just declare components and routes; however, for the sake of 
 simplicity, I decided to not create a new "parent" component and just `App` as such.
 
-### Credit Card
+#### Credit Card
 
 This component is pretty self explanatory; it's the credit card component.  It passes data to its child
 elements (e.g. Card Number `div`) via props, which are passed down from `App`.
 
-### Credit Card Form
+#### Credit Card Form
 
 Lastly, this component is also pretty self explanatory; it's the component that contains all of the
 form fields.
+
+### Tests
+
+Test Cafe's testing suite was used to E2E test this project.
+
+In order to run tests:
+
+* On `localhost`: `npm run test-local`
+* On `prod`: `npm run test-prod`
