@@ -22,6 +22,7 @@
 }
 
 .credit-card-form {
+  background-color: #ffffff;
   margin: 0 auto;
   max-width: 500px;
   padding-bottom: 20px;
@@ -31,6 +32,10 @@
 
 .credit-card-form * {
   box-sizing: border-box;
+}
+
+.credit-card-form input {
+  border: 1px solid #000000;
 }
 
 .credit-card-form-error {
@@ -68,4 +73,16 @@
   font-size: 14px;
   height: 50px; /* Same as buttons */
   width: 100%;
+}
+
+.credit-card-form,
+.credit-card-form input,
+.credit-card-form select,
+.submit-credit-card-form-button {
+  border-radius: 10px;
+}
+
+.credit-card-form input,
+.credit-card-form select {
+  padding-left: 10px;
 }
