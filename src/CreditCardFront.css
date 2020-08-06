@@ -4,6 +4,7 @@
   background-size: cover;
   border-radius: 10px;
   box-shadow: 5px 10px 5px #ccc;
+  color: white;
   display: flex;
   flex-direction: column;
   height: 270px;
@@ -54,4 +55,15 @@
 .credit-card-expiration-container,
 .credit-card-number {
   cursor: pointer;
+}
+
+.credit-card-holder-label,
+.credit-card-expiration-label {
+  font-size: 14px;
+}
+
+.credit-card-number,
+.credit-card-holder-name,
+.credit-card-expiration {
+  font-size: 20px;
 }

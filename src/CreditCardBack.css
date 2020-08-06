@@ -25,6 +25,7 @@
 
 .cvv-stripe {
   background-color: white;
+  font-size: 20px;
   height: 50px;
   text-align: right;
   width: 95%;
@@ -37,6 +38,8 @@
 }
 
 .cvv-stripe-label {
+  color: white;
+  font-size: 14px;
   text-align: right;
   width: 100%;
 }

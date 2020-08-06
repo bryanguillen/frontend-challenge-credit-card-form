@@ -72,7 +72,7 @@ export default function CreditCardFront({
         </div>
         <div className="credit-card-expiration-container" onClick={() => setFocusOnCreditCardExpirationMonth(true)}>
           <div className="credit-card-expiration-label">Expires</div>
-          <div className="credit-card-expiration-month">{getExpirationDate()}</div>
+          <div className="credit-card-expiration">{getExpirationDate()}</div>
         </div>
       </div>
     </div>
