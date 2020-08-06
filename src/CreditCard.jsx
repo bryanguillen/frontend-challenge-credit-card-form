@@ -13,7 +13,8 @@ export default function CreditCard({
   creditCardNameFromInput,
   showFront,
   setFocusOnCreditCardNumber,
-  setFocusOnCreditCardName
+  setFocusOnCreditCardName,
+  setFocusOnCreditCardExpirationMonth
 }) {
   const flipperClasses = showFront ? 'flipper' : 'flipper show-back';
 
@@ -27,6 +28,7 @@ export default function CreditCard({
           creditCardNameFromInput={creditCardNameFromInput}
           setFocusOnCreditCardNumber={setFocusOnCreditCardNumber}
           setFocusOnCreditCardName={setFocusOnCreditCardName}
+          setFocusOnCreditCardExpirationMonth={setFocusOnCreditCardExpirationMonth}
         />
         <CreditCardBack
           creditCardCvvFromInput={creditCardCvvFromInput}

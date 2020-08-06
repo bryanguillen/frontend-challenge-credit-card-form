@@ -23,10 +23,14 @@ export default function CreditCardForm({
   focusOnCreditCardNumber,
   onBlurForCreditCardNumberInput,
   focusOnCreditCardName,
-  onBlurForCreditCardNameInput
+  onBlurForCreditCardNameInput,
+  focusOnCreditCardExpirationMonth,
+  onBlurForCreditCardExpirationMonthInput
+
 }) {
   const creditCardNumberInputElement = useRef(null);
   const creditCardNameInputElement = useRef(null);
+  const creditCardExpirationMonthInputElement = useRef(null);
   
   useEffect(() => {
     if (focusOnCreditCardNumber) {
@@ -35,6 +39,10 @@ export default function CreditCardForm({
 
     if (focusOnCreditCardName) {
       creditCardNameInputElement.current.focus();
+    }
+
+    if (focusOnCreditCardExpirationMonth) {
+      creditCardExpirationMonthInputElement.current.focus();
     }
   });
 
@@ -123,6 +131,8 @@ export default function CreditCardForm({
               id="creditExpirationMonth"        
               onChange={event => setCreditCardExpirationMonth(event.target.value)}
               value={creditCardExpirationMonth}
+              onBlur={onBlurForCreditCardExpirationMonthInput}
+              ref={creditCardExpirationMonthInputElement}
             >
               <option defaultValue>Month</option>
               <option>01</option>

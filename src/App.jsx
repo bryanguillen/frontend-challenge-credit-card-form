@@ -19,6 +19,7 @@ function App() {
 
   const [focusOnCreditCardNumber, setFocusOnCreditCardNumber] = useState(false);
   const [focusOnCreditCardName, setFocusOnCreditCardName] = useState(false);
+  const [focusOnCreditCardExpirationMonth, setFocusOnCreditCardExpirationMonth] = useState(false);
 
   const [showFront, setShowFront] = useState(true);
 
@@ -65,6 +66,7 @@ function App() {
         showFront={showFront}
         setFocusOnCreditCardNumber={setFocusOnCreditCardNumber}
         setFocusOnCreditCardName={setFocusOnCreditCardName}
+        setFocusOnCreditCardExpirationMonth={setFocusOnCreditCardExpirationMonth}
       />
       <CreditCardForm
         creditCardNumber={creditCardNumber}
@@ -88,6 +90,8 @@ function App() {
         onBlurForCreditCardNumberInput={() => setFocusOnCreditCardNumber(false)}
         focusOnCreditCardName={focusOnCreditCardName}
         onBlurForCreditCardNameInput={() => setFocusOnCreditCardName(false)}
+        focusOnCreditCardExpirationMonth={focusOnCreditCardExpirationMonth}
+        onBlurForCreditCardExpirationMonthInput={() => setFocusOnCreditCardExpirationMonth(false)}
       />
     </div>
   );
