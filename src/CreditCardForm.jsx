@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import './CreditCardForm.css';
 
@@ -19,8 +19,17 @@ export default function CreditCardForm({
   setCreditCardName,
   setCreditCardExpirationMonth,
   setCreditCardExpirationYear,
-  setCreditCardCvv
+  setCreditCardCvv,
+  focusOnCreditCardNumber,
+  onBlurForCreditCardNumberInput
 }) {
+  const creditCardNameInputElement = useRef(null);
+  
+  useEffect(() => {
+    if (focusOnCreditCardNumber) {
+      creditCardNameInputElement.current.focus();
+    }
+  });
 
   /**
    * @description Function used to add a space every four characters, given a string
@@ -76,6 +85,8 @@ export default function CreditCardForm({
           onChange={handleChangeForCreditCardNumber}
           value={creditCardNumber}
           maxLength={19}
+          onBlur={onBlurForCreditCardNumberInput}
+          ref={creditCardNameInputElement}
         />
       </div>
       <div className="input-group">
