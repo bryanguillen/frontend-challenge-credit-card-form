@@ -4,6 +4,8 @@
 
 ![CC Authorization Demo](https://github.com/bryg217/frontend-challenge-credit-card-form/blob/master/cc-authorization-form.gif)
 
+[View live](https://bryg217.github.io/frontend-challenge-credit-card-form/)
+
 ### Challenge Overview
 
 Challenge 1 of 6 from [6 Frontend Challenges to Code](https://medium.com/better-programming/here-are-6-frontend-challenges-to-code-9952190c97cc).  It's a credit card authorization form without a
