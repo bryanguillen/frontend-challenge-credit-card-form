@@ -77,7 +77,7 @@ export default function CreditCardForm({
    */
   function handleChangeForCreditCardNumber(event) {
     const { value } = event.target;
-    const userDidNotDeleteCharacter = creditCardNumber.length < value.length;
+    const userDidNotDeleteCharacter = formFields.creditCardNumber.value.length < value.length;
     const newValue = userDidNotDeleteCharacter ? addSpaceEveryFourChars(value) : value;
     const updatedStateForControl = { creditCardNumber: { value: newValue, showError: false } };
 
