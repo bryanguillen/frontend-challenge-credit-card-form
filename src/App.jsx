@@ -3,19 +3,18 @@ import React, { useState } from 'react';
 import CreditCard from './CreditCard';
 import CreditCardForm from './CreditCardForm';
 
+import validateFormFields from './utils/validate-form-fields';
+
 import './App.css';
 
 function App() {
-  const [creditCardNumber, setCreditCardNumber] = useState('');  
-  const [creditCardName, setCreditCardName] = useState('');  
-  const [creditCardExpirationMonth, setCreditCardExpirationMonth] = useState('');  
-  const [creditCardExpirationYear, setCreditCardExpirationYear] = useState('');  
-  const [creditCardCvv, setCreditCardCvv] = useState('');
-
-  const [creditCardNumberError, setCreditCardNumberError] = useState(false);
-  const [creditCardNameError, setCreditCardNameError] = useState(false);
-  const [creditCardExpirationFieldError, setCreditCardExpirationFieldError] = useState(false);
-  const [creditCardCvvError, setCreditCardCvvError] = useState(false);
+  const [formFields, setFormFields] = useState({
+    creditCardNumber: { value: '', showError: false },
+    creditCardName: { value: '', showError: false },
+    creditExpirationMonth: { value: '', showError: false },
+    creditExpirationYear: { value: '', showError: false },
+    creditCardCvv: { value: '', showError: false }
+  });
 
   const [focusOnCreditCardNumber, setFocusOnCreditCardNumber] = useState(false);
   const [focusOnCreditCardName, setFocusOnCreditCardName] = useState(false);
@@ -30,68 +29,50 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (creditCardNumber === '' || creditCardNumber.length !== 19) {
-      setCreditCardNumberError(true);
-    } else {
-      setCreditCardNumberError(false);
-    }
-
-    if (creditCardName.trim() === '') {
-      setCreditCardNameError(true);
-    } else {
-      setCreditCardNameError(false);
-    }
-
-    if (creditCardExpirationMonth === '' || creditCardExpirationYear === '') {
-      setCreditCardExpirationFieldError(true);
-    } else {
-      setCreditCardExpirationFieldError(false);
-    }
-
-    if (creditCardCvv.trim() === '' || creditCardCvv.length !== 3) {
-      setCreditCardCvvError(true);
-    } else {
-      setCreditCardCvvError(false);
-    }
+    setFormFields(previousState => {
+      const {
+        showCreditCardNumberError,
+        showCreditCardNameError,
+        showCreditExpirationMonthError,
+        showCreditExpirationYearError,
+        showCreditCvvError
+      } = validateFormFields(formFields);
+      const updatedState = {
+        creditCardNumber: { ...previousState.creditCardNumber, showError: showCreditCardNumberError },
+        creditCardName: { ...previousState.creditCardName, showError: showCreditCardNameError },
+        creditExpirationMonth: { ...previousState.creditExpirationMonth, showError: showCreditExpirationMonthError },
+        creditExpirationYear: { ...previousState.creditExpirationYear, showError: showCreditExpirationYearError },
+        creditCardCvv: { ...previousState.creditCardCvv, showError: showCreditCvvError }
+      };
+      return { ...updatedState };
+    });
   }
 
   return (
     <div className="app">
       <CreditCard
-        creditCardCvvFromInput={creditCardCvv}
-        creditCardExpirationMonthFromInput={creditCardExpirationMonth}
-        creditCardExpirationYearFromInput={creditCardExpirationYear}   
-        creditCardNumberFromInput={creditCardNumber}
-        creditCardNameFromInput={creditCardName}
+        creditCardCvvFromInput={formFields.creditCardCvv.value}
+        creditCardExpirationMonthFromInput={formFields.creditExpirationMonth.value}
+        creditCardExpirationYearFromInput={formFields.creditExpirationYear.value}   
+        creditCardNumberFromInput={formFields.creditCardNumber.value}
+        creditCardNameFromInput={formFields.creditCardName.value}
         showFront={showFront}
         setFocusOnCreditCardNumber={setFocusOnCreditCardNumber}
         setFocusOnCreditCardName={setFocusOnCreditCardName}
         setFocusOnCreditCardExpirationMonth={setFocusOnCreditCardExpirationMonth}
       />
       <CreditCardForm
-        creditCardNumber={creditCardNumber}
-        creditCardName={creditCardName}
-        creditCardExpirationMonth={creditCardExpirationMonth}
-        creditCardExpirationYear={creditCardExpirationYear}
-        creditCardCvv={creditCardCvv}
-        creditCardNumberError={creditCardNumberError}
-        creditCardNameError={creditCardNameError}
-        creditCardExpirationFieldError={creditCardExpirationFieldError}
-        creditCardCvvError={creditCardCvvError}
         handleSubmit={handleSubmit}
-        setCreditCardNumber={setCreditCardNumber}
-        setCreditCardName={setCreditCardName}
-        setCreditCardExpirationMonth={setCreditCardExpirationMonth}
-        setCreditCardExpirationYear={setCreditCardExpirationYear}
-        setCreditCardCvv={setCreditCardCvv}
-        cvvOnFocus={() =>  setShowFront(false)}
-        cvvOnBlur={() =>  setShowFront(true)}
+        cvvOnFocus={() => setShowFront(false)}
+        cvvOnBlur={() => setShowFront(true)}
         focusOnCreditCardNumber={focusOnCreditCardNumber}
         onBlurForCreditCardNumberInput={() => setFocusOnCreditCardNumber(false)}
         focusOnCreditCardName={focusOnCreditCardName}
         onBlurForCreditCardNameInput={() => setFocusOnCreditCardName(false)}
         focusOnCreditCardExpirationMonth={focusOnCreditCardExpirationMonth}
         onBlurForCreditCardExpirationMonthInput={() => setFocusOnCreditCardExpirationMonth(false)}
+        formFields={formFields}
+        setFormFields={setFormFields}
       />
     </div>
   );
