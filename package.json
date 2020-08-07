@@ -12,7 +12,9 @@
     "build": "react-scripts build",
     "test-local": "testcafe chrome,edge,firefox test/*.spec.js -e local",
     "test-prod": "testcafe chrome,edge,firefox test/*.spec.js -e prod",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,7 +32,9 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "testcafe": "^1.9.0",
     "yargs": "^15.4.1"
-  }
+  },
+  "homepage": "http://bryg217.github.io/frontend-challenge-credit-card-form/"
 }
