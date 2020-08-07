@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/frontend-challenge-credit-card-form/static/css/main.0811fd24.chunk.css",
+    "main.js": "/frontend-challenge-credit-card-form/static/js/main.25594f92.chunk.js",
+    "main.js.map": "/frontend-challenge-credit-card-form/static/js/main.25594f92.chunk.js.map",
+    "runtime-main.js": "/frontend-challenge-credit-card-form/static/js/runtime-main.85b67a37.js",
+    "runtime-main.js.map": "/frontend-challenge-credit-card-form/static/js/runtime-main.85b67a37.js.map",
+    "static/js/2.6e1803bc.chunk.js": "/frontend-challenge-credit-card-form/static/js/2.6e1803bc.chunk.js",
+    "static/js/2.6e1803bc.chunk.js.map": "/frontend-challenge-credit-card-form/static/js/2.6e1803bc.chunk.js.map",
+    "index.html": "/frontend-challenge-credit-card-form/index.html",
+    "precache-manifest.b7a60c2b8b50c1204d3fa310cc3372a6.js": "/frontend-challenge-credit-card-form/precache-manifest.b7a60c2b8b50c1204d3fa310cc3372a6.js",
+    "service-worker.js": "/frontend-challenge-credit-card-form/service-worker.js",
+    "static/css/main.0811fd24.chunk.css.map": "/frontend-challenge-credit-card-form/static/css/main.0811fd24.chunk.css.map",
+    "static/js/2.6e1803bc.chunk.js.LICENSE.txt": "/frontend-challenge-credit-card-form/static/js/2.6e1803bc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.85b67a37.js",
+    "static/js/2.6e1803bc.chunk.js",
+    "static/css/main.0811fd24.chunk.css",
+    "static/js/main.25594f92.chunk.js"
+  ]
+}
