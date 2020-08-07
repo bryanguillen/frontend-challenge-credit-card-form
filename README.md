@@ -1,4 +1,4 @@
-# Front End Challenge - Credit Card Authorization (React Implementation)
+# Front End Challenge - Credit Card Form (React Implementation)
 
 ## Description
 
