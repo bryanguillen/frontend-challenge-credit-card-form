@@ -8,7 +8,7 @@ const getOptions = require('./cli');
  */
 function getUrlForTest(processArgv) {
   const environment = getOptions(processArgv).environment;
-  return environment === 'local' ? 'localhost:3000' : '';
+  return environment === 'local' ? 'localhost:3000' : 'https://bryg217.github.io/frontend-challenge-credit-card-form/';
 }
 
 module.exports = getUrlForTest;
