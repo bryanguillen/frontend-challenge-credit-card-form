@@ -80,3 +80,13 @@ In order to run tests:
 
 * On `localhost`: `npm run test-local`
 * On `prod`: `npm run test-prod`
+
+## Additional Observations
+
+* Opportunities for Improvement
+  * Refactor project to use `formik`
+    * Given the objectives of this challenge, I decided to implement
+      my own; however, for real world applications, I'd definitely use
+      something like formik
+  * Allow user to choose different types of credit cards; right now it is
+    only Visa
