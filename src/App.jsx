@@ -32,6 +32,23 @@ function App() {
   const [showFront, setShowFront] = useState(true);
 
   /**
+   * @description Function for extracting an object, where each key is the
+   * name of the field and the value is value.  It's passed into credit card
+   * component
+   * @returns {Object}
+   */
+  function getFormValues() {
+    const formValues = {};
+
+    for (const field in formFields) {
+      const { value } = formFields[field];
+      formValues[field] = value;
+    }
+
+    return formValues;
+  }
+
+  /**
    * @description Handler for submit; it simply validates the fields
    * @param {Object} event
    */
@@ -70,15 +87,11 @@ function App() {
   return (
     <div className="app">
       <CreditCard
-        creditCardCvvFromInput={formFields.creditCardCvv.value}
-        creditCardExpirationMonthFromInput={formFields.creditExpirationMonth.value}
-        creditCardExpirationYearFromInput={formFields.creditExpirationYear.value}   
-        creditCardNumberFromInput={formFields.creditCardNumber.value}
-        creditCardNameFromInput={formFields.creditCardName.value}
-        showFront={showFront}
+        formValues={getFormValues()}
         setFocusOnCreditCardNumber={() =>  toggleFieldFocus(CREDIT_CARD_NUMBER, true)}
         setFocusOnCreditCardName={() =>  toggleFieldFocus(CREDIT_CARD_NAME, true)}
         setFocusOnCreditCardExpirationMonth={() =>  toggleFieldFocus(CREDIT_CARD_EXPIRATION_MONTH, true)}
+        showFront={showFront}
       />
       <CreditCardForm
         handleSubmit={handleSubmit}
