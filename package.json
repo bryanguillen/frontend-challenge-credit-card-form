@@ -10,6 +10,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test": "react-scripts test",
     "test-local": "testcafe chrome,edge,firefox test/*.spec.js -e local",
     "test-prod": "testcafe chrome,edge,firefox test/*.spec.js -e prod",
     "eject": "react-scripts eject",
