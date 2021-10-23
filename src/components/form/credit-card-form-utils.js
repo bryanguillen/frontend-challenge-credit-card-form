@@ -1,5 +1,6 @@
 /**
- * @description Function used to add a space every four characters, given a string
+ * @description Function used to add a space every four characters, given a string;
+ * it's used to add spaces for the value within the credit card number input
  * @param {String} value
  * @param {Number} maxNumberOfSpaces
  * @returns {String}
