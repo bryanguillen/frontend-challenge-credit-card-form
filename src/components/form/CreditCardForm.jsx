@@ -3,7 +3,6 @@ import React, { useRef, useEffect } from 'react';
 import './CreditCardForm.css';
 
 export default function CreditCardForm({
-  creditCardNumber,
   cvvOnBlur,
   cvvOnFocus,
   handleSubmit,
