@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CreditCardBack from './CreditCardBack';
-import CreditCardFront from './CreditCardFront';
+import CreditCardBack from './back/CreditCardBack';
+import CreditCardFront from './front/CreditCardFront';
 
 import './CreditCard.css';
 
