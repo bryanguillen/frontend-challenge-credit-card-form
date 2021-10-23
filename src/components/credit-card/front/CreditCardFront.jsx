@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getCreditCardNumber, getExpirationDate } from './credit-card-front-utils';
+
 import './CreditCardFront.css';
 
 export default function CreditCardFront({
@@ -11,39 +13,6 @@ export default function CreditCardFront({
   setFocusOnCreditCardName,
   setFocusOnCreditCardExpirationMonth
 }) {
-  /**
-   * @description Helper function used to wrap the logic required
-   * for properly replacing the hash tags in the credit card number 
-   * field
-   * @returns {String}
-   */
-  function getCreditCardNumber() {
-    const creditCardNumberMaxLength = 19;
-    const hashedCreditCardNumber = '#### #### #### ####';
-    const creditCardNumberLength = creditCardNumberFromInput.length;
-
-    if (creditCardNumberLength === creditCardNumberMaxLength) {
-      return creditCardNumberFromInput;
-    } else if (creditCardNumberLength < creditCardNumberMaxLength && creditCardNumberLength > 0) {
-      return creditCardNumberFromInput.substring(0, creditCardNumberLength) + hashedCreditCardNumber.substring(creditCardNumberLength)
-    } else {
-      return hashedCreditCardNumber;
-    }
-  }
-
-  /**
-   * @description Helper function used for the same purpose as the one above -- to help
-   * wrap the logic of getting the actual month and year, which will replace the defaults
-   * once the value is chosen for each field
-   * @returns {String}
-   */
-  function getExpirationDate() {
-    const expirationMonth = creditCardExpirationMonthFromInput === '' ? 'MM' : creditCardExpirationMonthFromInput;
-    const expirationYear = creditCardExpirationYearFromInput === '' ? 'YYYY' : creditCardExpirationYearFromInput;
-
-    return expirationMonth + '/' + expirationYear;
-  }
-  
   return (
     <div className="credit-card-front">
       <div className="credit-card-chip-brand-container">  
@@ -63,7 +32,7 @@ export default function CreditCardFront({
         </div>
       </div>
       <div className="credit-card-number-container">
-        <div className="credit-card-number" onClick={() => setFocusOnCreditCardNumber(true)}>{getCreditCardNumber()}</div>
+        <div className="credit-card-number" onClick={() => setFocusOnCreditCardNumber(true)}>{getCreditCardNumber(creditCardNumberFromInput)}</div>
       </div>
       <div className="credit-card-name-and-expiration-container">
         <div className="credit-card-name-container" onClick={() => setFocusOnCreditCardName(true)}>
@@ -72,7 +41,7 @@ export default function CreditCardFront({
         </div>
         <div className="credit-card-expiration-container" onClick={() => setFocusOnCreditCardExpirationMonth(true)}>
           <div className="credit-card-expiration-label">Expires</div>
-          <div className="credit-card-expiration">{getExpirationDate()}</div>
+          <div className="credit-card-expiration">{getExpirationDate(creditCardExpirationMonthFromInput, creditCardExpirationYearFromInput)}</div>
         </div>
       </div>
     </div>
