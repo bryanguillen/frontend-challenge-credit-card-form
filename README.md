@@ -1,4 +1,4 @@
-# Front End Challenge - Credit Card Authorization (React Implementation)
+# Front End Challenge - Credit Card Form (React Implementation)
 
 ## Description
 
@@ -8,7 +8,7 @@
 
 ### Challenge Overview
 
-Challenge 1 of 6 from [6 Frontend Challenges to Code](https://medium.com/better-programming/here-are-6-frontend-challenges-to-code-9952190c97cc).  It's a credit card authorization form without a
+Challenge 1 of 6 from [6 Frontend Challenges to Code](https://medium.com/better-programming/here-are-6-frontend-challenges-to-code-9952190c97cc).  It's a credit card form without a
 backend and **implemented in React**.
 
 Some of the cool features include:
@@ -26,7 +26,7 @@ Some of the cool features include:
         that field needs that feature
   * Additionally, whenever the expiration container is clicked it focuses on the month field
     not the year
-* Basic Form Authorization
+* Basic Form Validation
   * Error messages are displayed when appropriate
 
 ### Purpose
