@@ -8,18 +8,27 @@ import validateFormFields from './utils/validate-form-fields';
 import './App.css';
 
 function App() {
+  // Form control names
+  const CREDIT_CARD_NUMBER = 'creditCardNumber';
+  const CREDIT_CARD_NAME = 'creditCardName';
+  const CREDIT_CARD_EXPIRATION_MONTH = 'creditExpirationMonth';
+
+  // Initial state for form controls
+  const initialFormFieldState = {
+    value: '',
+    showError: false
+  };
+
+  // form state
   const [formFields, setFormFields] = useState({
-    creditCardNumber: { value: '', showError: false },
-    creditCardName: { value: '', showError: false },
-    creditExpirationMonth: { value: '', showError: false },
-    creditExpirationYear: { value: '', showError: false },
-    creditCardCvv: { value: '', showError: false }
+    [CREDIT_CARD_NUMBER]: { ...initialFormFieldState, focused: false },
+    [CREDIT_CARD_NAME]: { ...initialFormFieldState, focused: false },
+    [CREDIT_CARD_EXPIRATION_MONTH]: { ...initialFormFieldState, focused: false },
+    creditExpirationYear: initialFormFieldState,
+    creditCardCvv: initialFormFieldState
   });
 
-  const [focusOnCreditCardNumber, setFocusOnCreditCardNumber] = useState(false);
-  const [focusOnCreditCardName, setFocusOnCreditCardName] = useState(false);
-  const [focusOnCreditCardExpirationMonth, setFocusOnCreditCardExpirationMonth] = useState(false);
-
+  // Credit card side state
   const [showFront, setShowFront] = useState(true);
 
   /**
@@ -44,8 +53,18 @@ function App() {
         creditExpirationYear: { ...previousState.creditExpirationYear, showError: showCreditExpirationYearError },
         creditCardCvv: { ...previousState.creditCardCvv, showError: showCreditCvvError }
       };
+
       return { ...updatedState };
     });
+  }
+
+  /**
+   * @description Wrapper for updating the focused boolean of a input field
+   */
+  function toggleFieldFocus(name, value) {
+    setFormFields(previousState =>
+      ({ ...previousState, [name]: { ...previousState[name], focused: value } })
+    )
   }
 
   return (
@@ -57,20 +76,20 @@ function App() {
         creditCardNumberFromInput={formFields.creditCardNumber.value}
         creditCardNameFromInput={formFields.creditCardName.value}
         showFront={showFront}
-        setFocusOnCreditCardNumber={setFocusOnCreditCardNumber}
-        setFocusOnCreditCardName={setFocusOnCreditCardName}
-        setFocusOnCreditCardExpirationMonth={setFocusOnCreditCardExpirationMonth}
+        setFocusOnCreditCardNumber={() =>  toggleFieldFocus(CREDIT_CARD_NUMBER, true)}
+        setFocusOnCreditCardName={() =>  toggleFieldFocus(CREDIT_CARD_NAME, true)}
+        setFocusOnCreditCardExpirationMonth={() =>  toggleFieldFocus(CREDIT_CARD_EXPIRATION_MONTH, true)}
       />
       <CreditCardForm
         handleSubmit={handleSubmit}
         cvvOnFocus={() => setShowFront(false)}
         cvvOnBlur={() => setShowFront(true)}
-        focusOnCreditCardNumber={focusOnCreditCardNumber}
-        onBlurForCreditCardNumberInput={() => setFocusOnCreditCardNumber(false)}
-        focusOnCreditCardName={focusOnCreditCardName}
-        onBlurForCreditCardNameInput={() => setFocusOnCreditCardName(false)}
-        focusOnCreditCardExpirationMonth={focusOnCreditCardExpirationMonth}
-        onBlurForCreditCardExpirationMonthInput={() => setFocusOnCreditCardExpirationMonth(false)}
+        focusOnCreditCardNumber={formFields.creditCardNumber.focused}
+        onBlurForCreditCardNumberInput={() =>  toggleFieldFocus(CREDIT_CARD_NUMBER, false)}
+        focusOnCreditCardName={formFields.creditCardName.focused}
+        onBlurForCreditCardNameInput={() => toggleFieldFocus(CREDIT_CARD_NAME, false)}
+        focusOnCreditCardExpirationMonth={formFields.creditExpirationMonth.focused}
+        onBlurForCreditCardExpirationMonthInput={() =>  toggleFieldFocus(CREDIT_CARD_EXPIRATION_MONTH, false)}
         formFields={formFields}
         setFormFields={setFormFields}
       />
