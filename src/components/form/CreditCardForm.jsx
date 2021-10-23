@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
+import { addSpaceEveryFourChars } from './credit-card-form-utils';
+
 import './CreditCardForm.css';
 
 export default function CreditCardForm({
@@ -32,27 +34,6 @@ export default function CreditCardForm({
       creditCardExpirationMonthInputElement.current.focus();
     }
   });
-
-  /**
-   * @description Function used to add a space every four characters, given a string
-   * @param {String} value
-   * @returns {String}
-   */
-  function addSpaceEveryFourChars(value, maxNumberOfSpaces = 3) {
-    const normalizedValue = value.replace(/\D/g, '');
-    let formattedValue = '';
-    let spacesAdded = 0;
-
-    for (let i = 0; i < normalizedValue.length; i++) {
-      formattedValue += normalizedValue[i];
-      if ((i + 1) % 4 === 0 && spacesAdded < maxNumberOfSpaces) {
-        formattedValue += ' ';
-        spacesAdded += 1;
-      }
-    }
-
-    return formattedValue;
-  }
   
   /**
    * @description Function used to handle the change for the cvv field
