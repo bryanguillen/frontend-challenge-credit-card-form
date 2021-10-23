@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import CreditCard from './components/credit-card/CreditCard';
-import CreditCardForm from './CreditCardForm';
+import CreditCardForm from './components/form/CreditCardForm';
 
 import validateFormFields from './utils/validate-form-fields';
 
