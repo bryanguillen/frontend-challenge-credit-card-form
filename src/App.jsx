@@ -49,6 +49,18 @@ function App() {
   }
 
   /**
+   * @description Function for handling the change event for the credit card form
+   * @param {String} fieldName
+   * @param {String} value
+   * @returns {}
+   */
+  function handleChange(fieldName, value) {
+    setFormFields(previousState =>
+      ({ ...previousState, [fieldName]: { ...previousState[fieldName], value } })
+    )
+  }
+
+  /**
    * @description Handler for submit; it simply validates the fields
    * @param {Object} event
    */
@@ -94,6 +106,7 @@ function App() {
         showFront={showFront}
       />
       <CreditCardForm
+        handleChange={handleChange}
         handleSubmit={handleSubmit}
         cvvOnFocus={() => setShowFront(false)}
         cvvOnBlur={() => setShowFront(true)}

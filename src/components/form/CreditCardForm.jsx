@@ -7,6 +7,7 @@ import './CreditCardForm.css';
 export default function CreditCardForm({
   cvvOnBlur,
   cvvOnFocus,
+  handleChange,
   handleSubmit,
   focusOnCreditCardNumber,
   onBlurForCreditCardNumberInput,
@@ -14,8 +15,7 @@ export default function CreditCardForm({
   onBlurForCreditCardNameInput,
   focusOnCreditCardExpirationMonth,
   onBlurForCreditCardExpirationMonthInput,
-  formFields,
-  setFormFields
+  formFields
 }) {
   const creditCardNumberInputElement = useRef(null);
   const creditCardNameInputElement = useRef(null);
@@ -34,55 +34,6 @@ export default function CreditCardForm({
       creditCardExpirationMonthInputElement.current.focus();
     }
   });
-  
-  /**
-   * @description Function used to handle the change for the cvv field
-   * @param {Object} event
-   */
-  function handleChangeForCreditCardCvv(event) {
-    const updatedStateForCvv = { creditCardCvv: { value: event.target.value.replace(/\D/g, ''), showError: false } };
-    setFormFields(previousState => ({
-      ...previousState,
-      ...updatedStateForCvv
-    }));
-  }
-
-  /**
-   * @description Function used to handle the change for cc number
-   * field; it's used to encapsulate the logic for this field, since
-   * it is a bit more involved.  It's more involved b/c it has
-   * to format (i.e. add a space every 4 digits) and it can only accept
-   * digits.
-   * @param {Object} event
-   */
-  function handleChangeForCreditCardNumber(event) {
-    const { value } = event.target;
-    const userDidNotDeleteCharacter = formFields.creditCardNumber.value.length < value.length;
-    const newValue = userDidNotDeleteCharacter ? addSpaceEveryFourChars(value) : value;
-    const updatedStateForControl = { creditCardNumber: { value: newValue, showError: false } };
-
-    setFormFields(previousState => ({
-      ...previousState,
-      ...updatedStateForControl
-    }));
-  }
-
-  /**
-   * @description Function used as wrapper for updating state for all form fields, except for
-   * the credit card number and cvv field 
-   * @param {Object} event
-   */
-  function handleChange(event) {
-    const fieldName = event.target.name;
-
-    const updatedStateForControl = {};
-    updatedStateForControl[fieldName] = { value: event.target.value, showError: false };
-
-    setFormFields(previousState => ({
-      ...previousState,
-      ...updatedStateForControl
-    }));
-  }
 
   return (
     <form className="credit-card-form" onSubmit={handleSubmit}>
@@ -95,7 +46,12 @@ export default function CreditCardForm({
           id="creditCardNumber"
           type="text"
           placeholder="1234 5678 1234 5678"
-          onChange={handleChangeForCreditCardNumber}
+          onChange={event => {
+            const { value } = event.target;
+            const userDidNotDeleteCharacter = formFields.creditCardNumber.value.length < value.length;
+            const newValue = userDidNotDeleteCharacter ? addSpaceEveryFourChars(value) : value;
+            handleChange('creditCardNumber', newValue)}
+          }
           value={formFields.creditCardNumber.value}
           maxLength={19}
           onBlur={onBlurForCreditCardNumberInput}
@@ -111,7 +67,7 @@ export default function CreditCardForm({
           id="creditCardName"
           type="text"
           placeholder="John Smith"
-          onChange={handleChange}
+          onChange={event => handleChange('creditCardName', event.target.value)}
           value={formFields.creditCardName.value}
           onBlur={onBlurForCreditCardNameInput}
           ref={creditCardNameInputElement}
@@ -127,7 +83,7 @@ export default function CreditCardForm({
               className="credit-card-select-field expiration-month-input"
               name="creditExpirationMonth"
               id="creditExpirationMonth"        
-              onChange={handleChange}
+              onChange={event => handleChange('creditExpirationMonth', event.target.value)}
               value={formFields.creditExpirationMonth.value}
               onBlur={onBlurForCreditCardExpirationMonthInput}
               ref={creditCardExpirationMonthInputElement}
@@ -151,7 +107,7 @@ export default function CreditCardForm({
               className="credit-card-select-field expiration-year-input"
               name="creditExpirationYear"
               id="creditExpirationYear"
-              onChange={handleChange}
+              onChange={event => handleChange('creditExpirationYear', event.target.value)}
               value={formFields.creditExpirationYear.value}
             >
               <option defaultValue>Year</option>
@@ -168,7 +124,7 @@ export default function CreditCardForm({
             className="credit-card-text-field cvv-input"
             type="text"
             placeholder="123"
-            onChange={handleChangeForCreditCardCvv}
+            onChange={event => handleChange('creditCardCvv', event.target.value.replace(/\D/g, ''))}
             maxLength={3}
             value={formFields.creditCardCvv.value}
             onBlur={cvvOnBlur}
