@@ -5,14 +5,18 @@ import { getCreditCardNumber, getExpirationDate } from './credit-card-front-util
 import './CreditCardFront.css';
 
 export default function CreditCardFront({
-  creditCardExpirationMonthFromInput,
-  creditCardExpirationYearFromInput,
-  creditCardNumberFromInput,
-  creditCardNameFromInput,
+  fieldValues,
   setFocusOnCreditCardNumber,
   setFocusOnCreditCardName,
   setFocusOnCreditCardExpirationMonth
 }) {
+  const {
+    creditCardNumber,
+    creditCardName,
+    creditExpirationMonth,
+    creditExpirationYear
+  } = fieldValues;
+
   return (
     <div className="credit-card-front">
       <div className="credit-card-chip-brand-container">  
@@ -32,16 +36,16 @@ export default function CreditCardFront({
         </div>
       </div>
       <div className="credit-card-number-container">
-        <div className="credit-card-number" onClick={setFocusOnCreditCardNumber}>{getCreditCardNumber(creditCardNumberFromInput)}</div>
+        <div className="credit-card-number" onClick={setFocusOnCreditCardNumber}>{getCreditCardNumber(creditCardNumber)}</div>
       </div>
       <div className="credit-card-name-and-expiration-container">
         <div className="credit-card-name-container" onClick={setFocusOnCreditCardName}>
           <div className="credit-card-holder-label">Card Holder</div>
-          <div className="credit-card-holder-name">{creditCardNameFromInput}</div>
+          <div className="credit-card-holder-name">{creditCardName}</div>
         </div>
         <div className="credit-card-expiration-container" onClick={setFocusOnCreditCardExpirationMonth}>
           <div className="credit-card-expiration-label">Expires</div>
-          <div className="credit-card-expiration">{getExpirationDate(creditCardExpirationMonthFromInput, creditCardExpirationYearFromInput)}</div>
+          <div className="credit-card-expiration">{getExpirationDate(creditExpirationMonth, creditExpirationYear)}</div>
         </div>
       </div>
     </div>
